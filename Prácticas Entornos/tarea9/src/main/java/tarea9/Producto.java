@@ -6,6 +6,7 @@ public class Producto {
     private double precio;
     private int stock;
 
+    // Para gestionar los producots sin mas, un get-set con un to-string 
     public Producto(String nombre, double precio, int stock) {
         this.nombre = nombre;
         this.precio = precio;
