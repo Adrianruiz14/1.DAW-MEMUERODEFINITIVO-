@@ -1,16 +1,38 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <META NAME="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ultimate JS</title>
+    <title>Triángulos JS</title>
 </head>
 <body>
-     memuero
-     <script src="variables/01-variables.js">
-     </script>
+
+    <h1>Resultado:</h1>
+    <h2 id="miEtiqueta"></h2>
+
+    <script>
+        // 1. Pedir datos
+        const l1 = parseInt(prompt("Lado 1:"));
+        const l2 = parseInt(prompt("Lado 2:"));
+        const l3 = parseInt(prompt("Lado 3:"));
+
+        // 2. Definir la variable para el texto
+        let resultado = "";
+
+        // 3. Lógica (Fíjate bien en las llaves)
+        if (l1 === l2 && l2 === l3) {
+            resultado = "Es Equilátero";
+        } else if (l1 === l2 || l1 === l3 || l2 === l3) {
+            resultado = "Es Isósceles";
+        } else {
+            resultado = "Es Escaleno";
+        }
+
+        // 4. MOSTRAR EN CONSOLA
+        console.log(resultado);
+
+        // 5. MOSTRAR EN EL H2 (Esto reemplaza cualquier texto previo)
+        document.getElementById("miEtiqueta").textContent = resultado;
+    </script>
+
 </body>
 </html>
-
-
