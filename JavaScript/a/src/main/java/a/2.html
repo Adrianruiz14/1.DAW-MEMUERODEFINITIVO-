@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Triángulos JS</title>
+</head>
+
+<body>
+
+    <h1>Resultado:</h1>
+    <h2 id="miEtiqueta"></h2>
+
+    <script>
+        let precioBaseCOmpra = parseInt(prompt("Introduce el valor total de la compra"));
+        const tipo_cliente = prompt("Introduce tu rango de cliente: Base/VIP");
+        const descuento_vip = 20;
+        const descuento_base = 10;
+        let precioCompraDescuento;
+        let preciofinal;
+     
+
+        if (tipo_cliente == "VIP" || tipo_cliente == "vip") {
+            precioCompraDescuento = precioBaseCOmpra * descuento_vip / 100;
+            preciofinal = precioBaseCOmpra - precioCompraDescuento;
+           
+        } else if ( precioBaseCOmpra > 100 ) { precioCompraDescuento = precioBaseCOmpra * descuento_base / 100;
+            preciofinal = precioBaseCOmpra - precioCompraDescuento;
+         
+        } else {
+            preciofinal = precioBaseCOmpra;
+        }
+
+        console.log(preciofinal);
+         
+         document.getElementById("miEtiqueta").textContent = preciofinal;
+
+    </script>
+
+</body>
+
+</html>
