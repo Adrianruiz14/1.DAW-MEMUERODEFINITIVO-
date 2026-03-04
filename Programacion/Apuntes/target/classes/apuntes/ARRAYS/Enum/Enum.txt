@@ -1,0 +1,12 @@
+public enum DiaSemana {
+    LUNES, MARTES, MIERCOLES, JUEVES, VIERNES, SABADO, DOMINGO
+}
+Para usarlos en tu código, simplemente los llamas por su nombre:
+
+Java
+
+DiaSemana hoy = DiaSemana.VIERNES;
+
+if (hoy == DiaSemana.DOMINGO) {
+    System.out.println("¡A descansar!");
+}
