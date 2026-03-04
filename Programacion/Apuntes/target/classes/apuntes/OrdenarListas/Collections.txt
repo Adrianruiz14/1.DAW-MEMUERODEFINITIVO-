@@ -1,0 +1,78 @@
+Ordenar listas/hashmap, etc: 
+EJ:
+List<String> nombres = new ArrayList<>();
+nombres.add("Zaira");
+nombres.add("Alberto");
+Collections.sort(nombres); // Ahora Alberto está primero
+
+
+-Aparte de sort(), esta clase te salva la vida con estos métodos:
+
+Collections.reverse(lista): Le da la vuelta (lo que estaba al final, pasa al principio).
+
+Collections.shuffle(lista): Mezcla los elementos aleatoriamente (ideal para juegos de cartas).
+
+Collections.max(lista) / min(): Te da el valor más grande o pequeño.
+
+Collections.frequency(lista, elemento): Te dice cuántas veces aparece "Pepe" en la lista.
+
+
+
+Busqueda Binaria: 
+
+List<Integer> numeros = new ArrayList<>(Arrays.asList(10, 20, 30, 40, 50));
+// REGLA: Debe estar ordenada antes de buscar
+Collections.sort(numeros); 
+
+// Buscamos el número 40
+int indice = Collections.binarySearch(numeros, 40);
+
+System.out.println("El 40 está en la posición: " + indice); // Salida: 3
+
+Si estuviera desordenada por ejemplo: 
+List<Integer> numeros = new ArrayList<>(Arrays.asList(50, 10, 40, 20, 30));
+Al ejecutar Collections.sort(numeros);, Java hace lo siguiente:
+
+Compara los valores: Mira qué número es más pequeño.
+
+Reubica: Mueve los elementos internamente.
+
+Resultado: Al imprimirla, siempre verás los números de menor a mayor (orden ascendente).
+
+System.out.println(numeros); 
+// Salida: [10, 20, 30, 40, 50]
+
+
+
+¿Puede ser tambien un String? Si
+
+List<String> nombres = new ArrayList<>(Arrays.asList("Zaira", "Alberto", "Marta", "Bernardo"));
+
+// 1. OBLIGATORIO: Ordenar (Alberto, Bernardo, Marta, Zaira)
+Collections.sort(nombres);
+
+// 2. Buscar
+int posicion = Collections.binarySearch(nombres, "Marta");
+
+System.out.println("Marta está en el índice: " + posicion); // Imprimirá: 2
+
+A parte para saber tambien que va antes que otra cosa podemos usar esto:
+
+String nombre1 = "Marta";
+String nombre2 = "Zaira";
+
+int resultado = nombre1.compareTo(nombre2);
+
+Java compara letra por letra hasta encontrar una diferencia:Compara la 'M' de Marta con la 'Z' de Zaira.
+En la tabla Unicode:M = 77Z = 90Hace la resta: $77 - 90 = -13$.Como el resultado es negativo, Java sabe que "Marta" va antes.
+
+CUIDADO: Esto es lo más importante: Las mayúsculas siempre van antes que las minúsculas.
+
+'Z' (Mayúscula) es el número 90.
+
+'a' (Minúscula) es el número 97.
+
+Si comparas "Zaira" con "alberto", ¡Java te dirá que Zaira va antes porque la Z tiene un número menor que la a!
+
+La solución: compareToIgnoreCase()
+Si quieres comparar nombres sin que importen las mayúsculas (orden alfabético real de humano), usa este método:

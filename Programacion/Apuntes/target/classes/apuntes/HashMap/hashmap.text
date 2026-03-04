@@ -1,0 +1,79 @@
+// Declaración: <TipoClave, TipoValor>
+HashMap<String, Integer> edades = new HashMap<>();
+
+// 1. Guardar (put)
+edades.put("Ana", 25);
+edades.put("Juan", 30);
+
+// 2. Obtener (get)
+int edadAna = edades.get("Ana"); // Devuelve 25
+
+// 3. Eliminar (remove)
+edades.remove("Juan");
+
+// 4. ¿Existe la clave? (containsKey)
+boolean estaAna = edades.containsKey("Ana"); // true
+
+// 5. Para imprimir: 
+HashMap<String, String> capitales = new HashMap<>();
+capitales.put("España", "Madrid");
+
+// Imprimimos solo el valor asociado a "España"
+System.out.println("La capital es: " + capitales.get("España")); 
+// Salida: La capital es: Madrid
+
+// 6. ¿Cuando usar HashMap o HashSet?
+Usa HashMap si:Necesitas asociar dos datos.Ejemplo:
+ Un ID de empleado $\rightarrow$ 
+ El objeto Empleado.Ejemplo: Nombre de usuario $\rightarrow$ Su contraseña.Ejemplo: Palabra en inglés $\rightarrow$ Traducción al español
+ 
+ .Usa HashSet si:
+ Solo te importa que una lista no tenga repetidos y no necesitas un orden.Ejemplo:
+  Una lista de correos para un newsletter (no quieres enviar el mismo correo dos veces).
+  Ejemplo:
+  Los números que ya salieron en un sorteo.Ejemplo: Invitados que ya confirmaron asistencia.
+
+
+  Diferencia ejemplo: 
+  // HASHSET: Solo valores únicos
+HashSet<String> invitados = new HashSet<>();
+invitados.add("Pepe");
+invitados.add("Pepe"); // No hace nada, ya existe.
+
+// HASHMAP: Relación Clave -> Valor
+HashMap<Integer, String> dorsales = new HashMap<>();
+dorsales.put(10, "Messi");
+dorsales.put(7, "CR7");
+
+// ¿Por qué usarias HashSet existiendo array o arrayList?
+
+1. La velocidad (El factor determinante) 
+⚡Imagina que tienes una lista con 1 millón de correos electrónicos y quieres saber si juan@gmail.com ya está en la lista.
+En un ArrayList: El programa tiene que leer el correo 1, luego el 2, luego el 3... así hasta el millón. Si el correo no está, ¡ha tenido que trabajar muchísimo! 
+(Esto es $O(n)$).
+En un HashSet: Gracias a un proceso matemático llamado Hashing, el programa va directo a la posición donde debería estar el correo.
+ No importa si tienes 10 correos o 10 millones, tarda lo mismo: casi cero. (Esto es $O(1)$).Si tu prioridad es la búsqueda rápida, el HashSet gana por goleada.
+
+Si usas un ArrayList y no quieres repetidos, tienes que programar tú la lógica:
+
+if (!miLista.contains("Pepe")) {  
+    miLista.add("Pepe");
+}
+Con un HashSet, simplemente haces .add("Pepe"). Si ya existe, el HashSet lo ignora automáticamente. Te ahorras código y errores.
+
+ArrayList: Las canciones de una Playlist. El orden importa (primera canción, segunda...) y puedes querer escuchar la misma canción dos veces.
+HashSet: El DNI de los ciudadanos en una base de datos de Hacienda. No puede haber dos iguales y necesitas encontrar uno entre millones de forma instantánea.
+
+
+Ejemplo de uso: 
+
+HashSet<String> usuarios = new HashSet<>();
+
+usuarios.add("Pepe"); 
+
+if (usuarios.add("Pepe")) {
+    System.out.println("Bienvenido, Pepe");
+} else {
+    System.out.println("Error: El usuario Pepe ya está registrado."); 
+    // Esto es lo que saldría la segunda vez
+}
