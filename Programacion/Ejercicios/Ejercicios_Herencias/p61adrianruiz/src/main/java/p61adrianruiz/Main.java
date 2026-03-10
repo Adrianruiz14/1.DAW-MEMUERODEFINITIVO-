@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Main {
+
     public static void main(String[] args) {
         List<Producto> productos = new ArrayList<>();
 
@@ -15,8 +16,8 @@ public class Main {
         productos.add(new LibroPapel(3, 18.99, 0.21, "Historia de España basado en memuero", "978-1-234567-91-3", 320));
         productos.add(new LibroPapel(4, 22.50, 0.21, "Me muero con esto", "978-1-234567-92-0", 512));
 
-        productos.add(new Pantalon(5, 45.00, 0.21, "Pantalón vaquero", "M"));
-        productos.add(new Pantalon(6, 35.50, 0.21, "Pantalón para tiendas", "L"));
+        productos.add(new Pantalon("M", 0, 0, 0, null, null));
+        productos.add(new Pantalon("A", 0, 0, 0, null, null));
 
         productos.add(new Musica(7, 56.9, 0.21, "Disco de BTS", "BTS"));
         productos.add(new Musica(8, 21.9, 0.21, "Disco de Los Chunguitos", "Los Chunguitos"));
@@ -44,15 +45,15 @@ public class Main {
          * propia "forma" al método. Tú has decidido que el toString() de un Libro
          * devuelva el ISBN, pero el toString() de una Factura podría devolver el
          * importe total.
-         * 
+         *
          * Invocación dinámica: Java decide en tiempo de ejecución qué versión del
          * método ejecutar dependiendo del objeto real que tenga entre manos.
          */
-
         // ahora buscamos mediante búsqueda binaria
         // A. Buscamos un producto que SÍ existe (por ejemplo, el código 3)
         int codigoExistente = 3;
         // Creamos un objeto "molde" que solo necesita el código para comparar
+
         Producto moldeExistente = new LibroPapel(codigoExistente, 0, 0, "", "", 0);
 
         int posEncontrado = Collections.binarySearch(productos, moldeExistente,
@@ -98,8 +99,7 @@ public class Main {
          * 
          * Resumen de la lógica:
          */
-
-                // recolectar todos los libros en una lista aparte
+        // recolectar todos los libros en una lista aparte
         List<Libro> libros_recolectados = new ArrayList<>();
         for (Producto p : productos) {
             if (p instanceof Libro) {

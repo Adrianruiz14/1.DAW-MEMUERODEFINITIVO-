@@ -59,6 +59,23 @@ public abstract class Producto {
     }
 
     @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null) return false;
+        if (getClass() != obj.getClass()) return false;
+        Producto other = (Producto) obj;
+        if (codigo != other.codigo) return false;
+        if (Double.doubleToLongBits(precio) != Double.doubleToLongBits(other.precio)) return false;
+        if (Double.doubleToLongBits(iva) != Double.doubleToLongBits(other.iva)) return false;
+        if (descripcion == null) {
+            if (other.descripcion != null) return false;
+        } else if (!descripcion.equals(other.descripcion)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
@@ -71,10 +88,5 @@ public abstract class Producto {
         result = prime * result + ((descripcion == null) ? 0 : descripcion.hashCode());
         return result;
     }
-
-
-    
-
-    
 
 }
