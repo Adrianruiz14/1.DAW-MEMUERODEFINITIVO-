@@ -2,11 +2,10 @@ package p61adrianruiz;
 
 public final class Pantalon extends Ropa {
 
-    protected String talla;
-  
+    private String talla;
 
-    public Pantalon(int codigo, double precio, double iva, String descripcion, String talla) {
-        super(codigo, precio, iva, descripcion, codigo, precio, iva, descripcion);
+    public Pantalon(String talla, int codigo, double precio, double iva, String descripcion, String marca) {
+        super(codigo, precio, iva, descripcion, marca);
         this.talla = talla;
     }
 
@@ -27,4 +26,8 @@ public final class Pantalon extends Ropa {
         return sb.toString();
     }
 
+    @Override
+    public void enviar(String direccion) {
+        System.out.println("Enviando pantalón talla " + talla + " a " + direccion);
+    }
 }

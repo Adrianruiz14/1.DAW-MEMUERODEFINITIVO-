@@ -24,7 +24,7 @@ public final class LibroDigital extends Libro implements Descarga {
 
     @Override
     public void descargar() {
-        System.out.println("http://tunombre.daw/" + this.hashCode()); 
+        System.out.println("http://tunombre.daw/" + this.hashCode());
         // El hashCode lo que hace aquí es identificar como única la instancia para la memoria
     }
 
